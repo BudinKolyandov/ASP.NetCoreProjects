@@ -5,6 +5,7 @@
 
     using ForumSystem.Data.Common.Repositories;
     using ForumSystem.Data.Models;
+    using ForumSystem.Services.Data;
     using ForumSystem.Services.Mapping;
     using ForumSystem.Web.ViewModels;
     using ForumSystem.Web.ViewModels.Home;
@@ -12,21 +13,20 @@
 
     public class HomeController : BaseController
     {
-        private readonly IDeletableEntityRepository<Category> categoriesRepository;
+        private readonly ICategoriesService categoriesService;
 
-        public HomeController(IDeletableEntityRepository<Category> categoriesRepository)
+        public HomeController(ICategoriesService categoriesService)
         {
-            this.categoriesRepository = categoriesRepository;
+            this.categoriesService = categoriesService;
         }
 
         public IActionResult Index()
         {
-            var viewModel = new IndexViewModel();
-            var categories = this.categoriesRepository.All()
-                .To<IndexCategoryViewModel>()
-                .ToList();
-            viewModel.Categories = categories;
-
+            var viewModel = new IndexViewModel
+            {
+                Categories =
+                this.categoriesService.GetAll<IndexCategoryViewModel>(),
+            };
             return this.View(viewModel);
         }
 
