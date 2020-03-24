@@ -28,7 +28,13 @@
 
         public IActionResult ById(int id)
         {
-            return this.View();
+            var postVieModel = this.postsService.GetById<PostViewModel>(id);
+            if (postVieModel == null)
+            {
+                return this.NotFound();
+            }
+
+            return this.View(postVieModel);
         }
 
         [Authorize]
