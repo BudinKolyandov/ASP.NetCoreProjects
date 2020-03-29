@@ -1,0 +1,18 @@
+﻿@model PcBuildingGuide.Web.ViewModels.Home.IndexViewModel
+@using PcBuildingGuide.Common
+@{
+    this.ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+@foreach (var category in Model.Categories)
+{
+    <h2>@category.Name</h2>
+    <p>@category.Description</p>
+    <br />
+}
+
+</div>
