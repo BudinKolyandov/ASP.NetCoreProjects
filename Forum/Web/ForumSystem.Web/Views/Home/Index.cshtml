@@ -4,10 +4,12 @@
     this.ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center mb-1">
     <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
+    <a asp-controller="Posts" asp-action="Create" class="btn btn-primary btn-lg">Create new post</a>
 </div>
 
+<hr />
 <div class="row">
     @foreach (var category in Model.Categories)
     {
