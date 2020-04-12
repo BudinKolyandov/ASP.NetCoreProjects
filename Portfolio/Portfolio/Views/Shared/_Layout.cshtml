@@ -6,32 +6,43 @@
     <title>@ViewData["Title"] - Portfolio</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="~/lib/themify-icons/themify-icons.css">
 </head>
-<body>
+<body class="BackgroundTestClass">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-transparent border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand text-primary" asp-area="" asp-controller="Home" asp-action="Index">Portfolio</a>
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Budin Kolyandov</a>
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                    <a class="navbar-brand text-white" asp-area="Administration" asp-controller="Projects" asp-action="Index">Administration</a>
+                    <div class="nav-item">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="nav-link btn btn-link text-white">Logout</button>
+                        </form>
+                    </div>
+                }
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav text-primary">
+                    <ul class="navbar-nav text-white">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-white font-weight-bolder" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">About</a>
+                            <a class="nav-link text-white font-weight-bolder" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Portfolio</a>
+                            <a class="nav-link text-white font-weight-bolder" asp-area="" asp-controller="Home" asp-action="Portfolio">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Contact</a>
+                            <a class="nav-link text-white font-weight-bolder" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-white font-weight-bolder" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
@@ -44,27 +55,26 @@
         </main>
     </div>
 
-    <footer class="border-top bg-dark footer-section text-muted py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5 class="text-secondary">Email</h5>
-                    <p class="text-white font-secondary">steve.fruits@email.com</p>
-                </div>
-                <div class="col-md-4">
-                    <h5 class="text-secondary">Phone</h5>
-                    <p class="text-white font-secondary">+880 2544 658 256</p>
-                </div>
-                <div class="col-md-4">
-                    <h5 class="text-secondary">Address</h5>
-                    <p class="text-white font-secondary">125/A, CA Commercial Area, California, USA</p>
+    <footer class="border-top footer-relative bg-transparent text-dark py-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5 class="text-white">Email</h5>
+                        <p class="text-white font-secondary">budin_kolyandov@abv.bg</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-white">Phone</h5>
+                        <p class="text-white font-secondary">+359 879 369 681</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-white">Address</h5>
+                        <p class="text-white font-secondary">Residential area Vitosha, Sofia, Bulgaria</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="text-center">
-            <hr class="bg-secondary" />
-            &copy; 2020 - Portfolio - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+            <div class="border-top text-center text-white py-1">
+                &copy; 2020 - Portfolio - <a class="text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

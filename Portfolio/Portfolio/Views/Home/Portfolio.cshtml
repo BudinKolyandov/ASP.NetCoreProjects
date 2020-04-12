@@ -1,0 +1,35 @@
+﻿@model Portfolio.Models.ViewModels.IndexPortfolioViewModel
+@{
+    ViewData["Title"] = "Portfolio";
+}
+<h1 class="display-4 text-white text-center">@ViewData["Title"]</h1>
+<br />
+
+@if (Model.Projects.Count() <= 0)
+{
+    <h4 class="display-4 text-white text-center">There are no projects added yet.</h4>
+}
+else
+{
+    <div class="container">
+        <div id="portfolioRow">
+            @foreach (var project in Model.Projects)
+            {
+                <div class="col-sm-4" style="margin-bottom:25px">
+                    <div class="card bg-transparent text-center text-white">
+                        <img class="card-img-top" src="@project.ImagePath" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">@project.Name</h4>
+                            <p style="font-size:150%" class="card-text">@project.Description</p>
+                            <div class="mx-auto">
+                                <a href="@project.Url" style="margin-bottom:25px" class="col-lg-5 col-10 btn btn-success w-100 text-white">WebSite</a>
+                                <a href="@project.GitHubUrl"  style="margin-bottom:25px" class="col-lg-5 col-10 btn btn-success w-100 text-white">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+        </div>
+    </div>
+}
