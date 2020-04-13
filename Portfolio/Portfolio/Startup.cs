@@ -1,8 +1,10 @@
 ﻿namespace Portfolio
 {
+    using System.Reflection;
     using global::Services.Mapping;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
@@ -11,7 +13,6 @@
     using Portfolio.Data;
     using Portfolio.Models;
     using Portfolio.Services;
-    using System.Reflection;
 
     public class Startup
     {
@@ -32,6 +33,14 @@
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential
+                // cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
 
             services.AddTransient<IHomeService, HomeService>();
             services.AddTransient<IProjectsService, ProjectsService>();
