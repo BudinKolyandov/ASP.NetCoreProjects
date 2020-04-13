@@ -15,7 +15,7 @@
                     <br />
                     <form method="post" asp-action="Contact" class="row">
                         <div class="col-md-6">
-                            <input asp-for="Name" placeholder="Full Name" class="form-control mb-4" />
+                            <input asp-for="Name" placeholder="Name" class="form-control mb-4" />
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
@@ -23,8 +23,8 @@
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="col-12">
-                            <textarea rows="3" placeholder="Type Message Here" asp-for="Email" class="form-control mb-4"></textarea>
-                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <textarea rows="3" placeholder="Type Message Here" asp-for="Message" class="form-control mb-4"></textarea>
+                            <span asp-validation-for="Message" class="text-danger"></span>
                         </div>
                         <div class="col-lg-5 col-10 mx-auto">
                             <input type="submit" class="btn btn-success w-100" value="Send" />
