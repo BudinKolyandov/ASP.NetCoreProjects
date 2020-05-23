@@ -354,6 +354,8 @@ MigrationBackup/
 appsettings.Development.json
 appsettings.Production.json
 appsettings.json
+Config.cs
+SqlCommands.cs
 launchSettings.json
 *.min.css	
 *.min.js

@@ -10,6 +10,7 @@
     using Microsoft.EntityFrameworkCore;
     using PcBuildingGuide.Data.Common.Models;
     using PcBuildingGuide.Data.Models;
+    using PcBuildingGuide.Data.Models.Parts;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
@@ -30,6 +31,26 @@
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<BuildPart> BuildsParts { get; set; }
+
+        public DbSet<Cpu> Cpus { get; set; }
+
+        public DbSet<AirCooler> AirCoolers { get; set; }
+
+        public DbSet<Case> Cases { get; set; }
+
+        public DbSet<HardDiskDrive> HardDiskDrives { get; set; }
+
+        public DbSet<SolidStateDrive> SolidStateDrives { get; set; }
+
+        public DbSet<Memory> Memories { get; set; }
+
+        public DbSet<Motherboard> Motherboards { get; set; }
+
+        public DbSet<PSU> PowerSupplies { get; set; }
+
+        public DbSet<VideoCard> VideoCards { get; set; }
+
+        public DbSet<WaterCooler> WaterCoolers { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
