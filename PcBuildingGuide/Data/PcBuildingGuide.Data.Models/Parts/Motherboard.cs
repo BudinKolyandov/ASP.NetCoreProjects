@@ -8,6 +8,8 @@
 
         public Category Category { get; set; }
 
+        public byte[] Image { get; set; }
+
         public string Name { get; set; }
 
         public string ImgUrl { get; set; }
